@@ -1,0 +1,79 @@
+{
+  "info": {
+    "name": "Fee Service APIs",
+    "description": "Postman collection for Student Fee Collection Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8082"
+    }
+  ],
+  "item": [
+    {
+      "name": "Collect Fee",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/fees/collect",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "fees",
+            "collect"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"studentId\": 1,\n  \"feeAmount\": 15000,\n  \"paymentMode\": \"UPI\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Get Receipt By ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/fees/receipt/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "fees",
+            "receipt",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Receipts By Student",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/fees/receipts/student/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "fees",
+            "receipts",
+            "student",
+            "1"
+          ]
+        }
+      }
+    }
+  ]
+}
